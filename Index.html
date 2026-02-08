@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Propose Day ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+html{ scroll-behavior:smooth; }
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background: linear-gradient(135deg,#ff7eb3,#ffb6d9);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* SECTION */
+.section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+opacity:0;
+transform: translateY(60px);
+transition: all 1s ease;
+}
+
+.section.show{
+opacity:1;
+transform: translateY(0);
+}
+
+/* BIG GLASS */
+.card{
+background: rgba(255,255,255,0.25);
+backdrop-filter: blur(25px);
+padding:35px;
+border-radius:30px;
+width:95%;
+max-width:550px;
+box-shadow:0 15px 60px rgba(0,0,0,0.25);
+}
+
+/* BIG GIF */
+.gif{
+width:320px;
+border-radius:20px;
+margin-top:20px;
+transition:0.5s;
+}
+
+.gif:hover{
+transform:scale(1.05);
+}
+
+/* SHAYARI */
+.shayari{
+margin-top:20px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* HEART FLOAT */
+.heart{
+position:fixed;
+bottom:-20px;
+color:#ff2d75;
+font-size:22px;
+animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+0%{ transform: translateY(0); opacity:1;}
+100%{ transform: translateY(-110vh); opacity:0;}
+}
+
+/* TYPING */
+.typing{
+border-right:3px solid white;
+white-space:nowrap;
+overflow:hidden;
+animation: typing 4s steps(40,end), blink 1s infinite;
+}
+
+@keyframes typing{
+from{ width:0 }
+to{ width:100% }
+}
+
+@keyframes blink{
+50%{ border-color: transparent }
+}
+
+/* BUTTON */
+button{
+padding:14px 30px;
+border:none;
+border-radius:15px;
+margin-top:20px;
+cursor:pointer;
+background:#ff4d88;
+color:white;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="section">
+<div class="card">
+
+<h1 class="typing">💍 Happy Propose Day 💍</h1>
+<h2>ANGELINA MANDAL ❤️</h2>
+
+<div class="shayari">
+Tum meri zindagi ki sabse khoobsurat wajah ho ❤️<br>
+Tumhare bina sab adhura lagta hai 🌹<br>
+Tum meri khushi ho 💖<br>
+Tum meri dua ho 🌸<br>
+Main hamesha tumhare saath rehna chahta hoon ❤️
+</div>
+
+</div>
+</div>
+
+<!-- GIF 1 -->
+<div class="section">
+<div class="card">
+
+<img class="gif"
+src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWxiaGxldXVpd3pkMzVhdzZtcGs0d2kwZG54Y28xdWY3MmZhNHNhdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xOvhMKk3EyS1LKQtkK/giphy.gif">
+
+<div class="shayari">
+Har din tumse baat karna mera favourite moment hai ❤️<br>
+Tum meri smile ho 😊<br>
+Tum meri duniya ho 🌍<br>
+Tum meri jaan ho 💖<br>
+Tum meri forever ho 🌹
+</div>
+
+</div>
+</div>
+
+<!-- GIF 2 -->
+<div class="section">
+<div class="card">
+
+<img class="gif"
+src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjJrNjZvbXo4cjBiM3hqNXI1emZjOWl4aTUxOHg4aTRlYXJ4bmJ2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eJdKXy8BugNqMFsmyC/giphy.gif">
+
+<div class="shayari">
+Tum meri subah ho 🌅<br>
+Tum meri raat ho 🌙<br>
+Tum meri har khushi ho ❤️<br>
+Tum meri life ho 💖<br>
+Tum meri love story ho 🌹
+</div>
+
+</div>
+</div>
+
+<!-- SONG SECTION -->
+<div class="section">
+<div class="card">
+
+<h2>🎵 Our Song 🎵</h2>
+
+<button onclick="playMusic()">▶ Play Music</button>
+
+<div class="shayari">
+Har song me mujhe tum yaad aati ho ❤️<br>
+Har beat me tumhari smile dikhti hai 🌹<br>
+Tum meri favourite melody ho 💖<br>
+Tum meri life ki music ho 🎵<br>
+Tum hi meri love story ho ❤️
+</div>
+
+</div>
+</div>
+
+<!-- FINAL -->
+<div class="section">
+<div class="card">
+
+<img class="gif"
+src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmFwdWh1b3IyODk4Z2Z1cXZhNHRneHc0cHUxM3d1OW12bWJ1c3ZvMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yjvfyJN1regrQLDxGl/giphy.gif">
+
+<div class="shayari" style="font-size:22px;">
+Will You Be Mine Forever? ❤️
+</div>
+
+</div>
+</div>
+
+<!-- HIDDEN MUSIC PLAYER -->
+<iframe id="musicPlayer"
+width="0"
+height="0"
+src=""
+allow="autoplay">
+</iframe>
+
+<script>
+
+/* SCROLL FADE */
+let sections=document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+let pos=sec.getBoundingClientRect().top;
+if(pos < window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* FLOAT HEART */
+function createHeart(){
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(18+Math.random()*25)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove()},6000);
+}
+
+setInterval(createHeart,500);
+
+/* PLAY NEW SONG INSIDE PAGE */
+function playMusic(){
+document.getElementById("musicPlayer").src =
+"https://image2url.com/r2/default/audio/1770537733108-92d1f31a-66e9-4469-a554-8f654862a396.mp3";
+}
+
+</script>
+
+</body>
+</html>
