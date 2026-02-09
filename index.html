@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Propose Day ❤️</title>
-
+<title>Chocolate Day Sakshi 🍫</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,7 +11,7 @@ html{ scroll-behavior:smooth; }
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background: linear-gradient(135deg,#ff7eb3,#ffb6d9);
+background: linear-gradient(135deg,#2b0057,#000a3d);
 color:white;
 text-align:center;
 overflow-x:hidden;
@@ -35,6 +34,166 @@ transition: all 1s ease;
 opacity:1;
 transform: translateY(0);
 }
+
+/* GLASS PURPLE CARD */
+.card{
+background: linear-gradient(
+135deg,
+rgba(106,0,255,0.7),
+rgba(0,68,255,0.7)
+);
+backdrop-filter: blur(25px);
+padding:35px;
+border-radius:30px;
+width:95%;
+max-width:550px;
+
+border: 2px solid rgba(255,255,255,0.2);
+
+box-shadow:
+0 15px 60px rgba(0,0,0,0.4),
+0 0 25px rgba(106,0,255,0.4),
+0 0 40px rgba(0,68,255,0.3);
+}
+
+/* GIF */
+.gif{
+width:320px;
+border-radius:20px;
+margin-top:20px;
+transition:0.5s;
+}
+
+.gif:hover{
+transform:scale(1.05);
+}
+
+/* TEXT */
+.shayari{
+margin-top:20px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* FLOAT HEART */
+.pheart{
+position:fixed;
+bottom:-20px;
+color:#b366ff;
+font-size:22px;
+animation: pfloat 7s linear infinite;
+}
+
+@keyframes pfloat{
+0%{ transform: translateY(0); opacity:1;}
+100%{ transform: translateY(-110vh); opacity:0;}
+}
+
+/* TYPING */
+.typing{
+border-right:3px solid white;
+white-space:nowrap;
+overflow:hidden;
+animation: typing 4s steps(40,end), blink 1s infinite;
+}
+
+@keyframes typing{
+from{ width:0 }
+to{ width:100% }
+}
+
+@keyframes blink{
+50%{ border-color: transparent }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="section">
+<div class="card">
+
+<h1 class="typing">🍫 Happy Chocolate Day 🍫</h1>
+<h2>Sakshi 💕</h2>
+
+<div class="shayari">
+Tu meri pyari behen hai ❤️<br>
+Tu meri best friend hai 😊<br>
+Tu meri strength hai 💪<br>
+Tu meri happiness hai 💖<br>
+Hamesha khush rehna 🍫💕
+</div>
+
+</div>
+</div>
+
+<!-- GIF 1 -->
+<div class="section">
+<div class="card">
+
+<img class="gif"
+src="https://media0.giphy.com/media/xOvhMKk3EyS1LKQtkK/giphy.gif">
+
+<div class="shayari">
+Chocolate ki tarah tu sweet hai 🍫<br>
+Har din tu smile karti reh 😊<br>
+Life me success mile 💕<br>
+Hamesha strong reh 💖<br>
+Love you behen ❤️
+</div>
+
+</div>
+</div>
+
+<!-- FINAL -->
+<div class="section">
+<div class="card">
+
+<img class="gif"
+src="https://media4.giphy.com/media/yjvfyJN1regrQLDxGl/giphy.gif">
+
+<div class="shayari" style="font-size:22px;">
+Happy Chocolate Day Sakshi 🍫💕<br>
+Stay Happy Always ❤️
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SCROLL FADE */
+let sections=document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+let pos=sec.getBoundingClientRect().top;
+if(pos < window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* FLOAT HEART */
+function createPurpleHeart(){
+let heart=document.createElement("div");
+heart.innerHTML="💜";
+heart.className="pheart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(18+Math.random()*25)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove()},7000);
+}
+
+setInterval(createPurpleHeart,600);
+
+</script>
+
+</body>
+</html>}
 
 /* BIG GLASS */
 .card{
@@ -248,5 +407,6 @@ document.getElementById("musicPlayer").src =
 
 </body>
 </html>
+
 
 
