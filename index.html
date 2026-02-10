@@ -1,412 +1,225 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-<title>Chocolate Day Sakshi 🍫</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Premium Love Gift - Chocolate Day</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet"><style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
 
-<style>
-
-html{ scroll-behavior:smooth; }
-
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background: linear-gradient(135deg,#2b0057,#000a3d);
-color:white;
-text-align:center;
-overflow-x:hidden;
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg,#5a2a1c,#8a4b2a,#c97a4a);
+  color: white;
 }
 
-/* SECTION */
-.section{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:40px 20px;
-opacity:0;
-transform: translateY(60px);
-transition: all 1s ease;
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.section.show{
-opacity:1;
-transform: translateY(0);
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.1);
 }
 
-/* GLASS PURPLE CARD */
-.card{
-background: linear-gradient(
-135deg,
-rgba(106,0,255,0.7),
-rgba(0,68,255,0.7)
-);
-backdrop-filter: blur(25px);
-padding:35px;
-border-radius:30px;
-width:95%;
-max-width:550px;
-
-border: 2px solid rgba(255,255,255,0.2);
-
-box-shadow:
-0 15px 60px rgba(0,0,0,0.4),
-0 0 25px rgba(106,0,255,0.4),
-0 0 40px rgba(0,68,255,0.3);
+/* Glass Card */
+.glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.1);
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* GIF */
-.gif{
-width:320px;
-border-radius:20px;
-margin-top:20px;
-transition:0.5s;
+/* Screen 1 Gift */
+.gift-card {
+  width: 260px;
+  height: 360px;
+  border-radius: 30px;
+  background: linear-gradient(135deg,#ffd700,#fff3b0,#ffd700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transition: transform 0.4s;
 }
 
-.gif:hover{
-transform:scale(1.05);
+.gift-card:hover { transform: scale(1.05); }
+
+.gift-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #4a1f14;
 }
 
-/* TEXT */
-.shayari{
-margin-top:20px;
-font-size:18px;
-line-height:1.6;
+.tap-text {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.6);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: #4a1f14;
 }
 
-/* FLOAT HEART */
-.pheart{
-position:fixed;
-bottom:-20px;
-color:#b366ff;
-font-size:22px;
-animation: pfloat 7s linear infinite;
+/* Chocolate Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 18px;
 }
 
-@keyframes pfloat{
-0%{ transform: translateY(0); opacity:1;}
-100%{ transform: translateY(-110vh); opacity:0;}
+.chocolate {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(145deg,#5a2a1c,#3a170e);
+  border-radius: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, opacity 0.5s;
+  box-shadow: inset 0 5px 10px rgba(255,255,255,0.1), 0 8px 15px rgba(0,0,0,0.5);
 }
 
-/* TYPING */
-.typing{
-border-right:3px solid white;
-white-space:nowrap;
-overflow:hidden;
-animation: typing 4s steps(40,end), blink 1s infinite;
+.chocolate:hover { transform: scale(1.1); }
+
+.fade { opacity: 0; transform: scale(0.5); pointer-events: none; }
+
+.message {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.9);
+  color: #4a1f14;
+  font-weight: 600;
+  display: none;
 }
 
-@keyframes typing{
-from{ width:0 }
-to{ width:100% }
+/* Final Screen */
+.final img {
+  width: 220px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
-@keyframes blink{
-50%{ border-color: transparent }
+.final h1 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 10px;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<!-- INTRO -->
-<div class="section">
-<div class="card">
-
-<h1 class="typing">🍫 Happy Chocolate Day 🍫</h1>
-<h2>Sakshi 💕</h2>
-
-<div class="shayari">
-Tu meri pyari behen hai ❤️<br>
-Tu meri best friend hai 😊<br>
-Tu meri strength hai 💪<br>
-Tu meri happiness hai 💖<br>
-Hamesha khush rehna 🍫💕
-</div>
-
-</div>
-</div>
-
-<!-- GIF 1 -->
-<div class="section">
-<div class="card">
-
-<img class="gif"
-src="https://media0.giphy.com/media/xOvhMKk3EyS1LKQtkK/giphy.gif">
-
-<div class="shayari">
-Chocolate ki tarah tu sweet hai 🍫<br>
-Har din tu smile karti reh 😊<br>
-Life me success mile 💕<br>
-Hamesha strong reh 💖<br>
-Love you behen ❤️
-</div>
-
-</div>
-</div>
-
-<!-- FINAL -->
-<div class="section">
-<div class="card">
-
-<img class="gif"
-src="https://media4.giphy.com/media/yjvfyJN1regrQLDxGl/giphy.gif">
-
-<div class="shayari" style="font-size:22px;">
-Happy Chocolate Day Sakshi 🍫💕<br>
-Stay Happy Always ❤️
-</div>
-
-</div>
-</div>
-
-<script>
-
-/* SCROLL FADE */
-let sections=document.querySelectorAll(".section");
-
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-let pos=sec.getBoundingClientRect().top;
-if(pos < window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-
-/* FLOAT HEART */
-function createPurpleHeart(){
-let heart=document.createElement("div");
-heart.innerHTML="💜";
-heart.className="pheart";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(18+Math.random()*25)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>{heart.remove()},7000);
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
 }
 
-setInterval(createPurpleHeart,600);
-
-</script>
-
-</body>
-</html>}
-
-/* BIG GLASS */
-.card{
-background: rgba(255,255,255,0.25);
-backdrop-filter: blur(25px);
-padding:35px;
-border-radius:30px;
-width:95%;
-max-width:550px;
-box-shadow:0 15px 60px rgba(0,0,0,0.25);
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* BIG GIF */
-.gif{
-width:320px;
-border-radius:20px;
-margin-top:20px;
-transition:0.5s;
+@media (max-width: 500px) {
+  .grid { grid-template-columns: repeat(3, 70px); }
+  .chocolate { width: 70px; height: 70px; }
+}
+</style></head><body><!-- Screen 1 --><div id="screen1" class="screen">
+  <div class="gift-card" onclick="goToGame()">
+    <div class="gift-title">Premium Love Gift</div>
+    <div class="tap-text">Tap to Unwrap</div>
+  </div>
+</div><!-- Screen 2 --><div id="screen2" class="screen hidden">
+  <div class="grid" id="chocoGrid"></div>
+</div><!-- Screen 3 --><div id="screen3" class="screen hidden final">
+  <div class="glass">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyNG9xdDJ4aGt4NGZmOTRhamF5bWR5b25pc2phZjI3dDVubWl1ZGRpciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WsRwFFRikFeAMriR15/giphy.gif" alt="gift" />
+    <h1>Happy Chocolate Day</h1>
+    <p>You are sweeter than chocolate ❤️</p>
+  </div>
+</div><div class="message" id="messageBox"></div><audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio><script>
+const messages = [
+  "Melting for you ❤️",
+  "You are my sweetest addiction 🍫",
+  "Made of chocolate and love 💕",
+  "Every bite reminds me of you 😍",
+  "Sweet moments with you forever 💖",
+  "Chocolate + You = Happiness 🍫❤️"
+];
+
+const grid = document.getElementById("chocoGrid");
+const messageBox = document.getElementById("messageBox");
+let total = 9;
+let clicked = 0;
+
+function goToGame(){
+  document.getElementById("screen1").classList.add("hidden");
+  document.getElementById("screen2").classList.remove("hidden");
+  document.getElementById("bgMusic").play().catch(()=>{});
 }
 
-.gif:hover{
-transform:scale(1.05);
+function createGrid(){
+  for(let i=0;i<total;i++){
+    const choco = document.createElement("div");
+    choco.className = "chocolate";
+
+    choco.onclick = () => {
+      if(choco.classList.contains("fade")) return;
+
+      // Immediately disappear block
+      choco.classList.add("fade");
+      clicked++;
+
+      // Show message
+      const msg = messages[Math.floor(Math.random()*messages.length)];
+      messageBox.innerText = msg;
+      messageBox.style.display = "block";
+
+      // Hide message after 5 sec
+      setTimeout(()=>{
+        messageBox.style.display = "none";
+        if(clicked === total) goToFinal();
+      },5000);
+    };
+
+    grid.appendChild(choco);
+  }
 }
 
-/* SHAYARI */
-.shayari{
-margin-top:20px;
-font-size:18px;
-line-height:1.6;
+function goToFinal(){
+  document.getElementById("screen2").classList.add("hidden");
+  document.getElementById("screen3").classList.remove("hidden");
 }
 
-/* HEART FLOAT */
-.heart{
-position:fixed;
-bottom:-20px;
-color:#ff2d75;
-font-size:22px;
-animation: floatUp 6s linear infinite;
+function createHearts(){
+  setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (4 + Math.random()*3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=> heart.remove(),7000);
+  },700);
 }
 
-@keyframes floatUp{
-0%{ transform: translateY(0); opacity:1;}
-100%{ transform: translateY(-110vh); opacity:0;}
-}
-
-/* TYPING */
-.typing{
-border-right:3px solid white;
-white-space:nowrap;
-overflow:hidden;
-animation: typing 4s steps(40,end), blink 1s infinite;
-}
-
-@keyframes typing{
-from{ width:0 }
-to{ width:100% }
-}
-
-@keyframes blink{
-50%{ border-color: transparent }
-}
-
-/* BUTTON */
-button{
-padding:14px 30px;
-border:none;
-border-radius:15px;
-margin-top:20px;
-cursor:pointer;
-background:#ff4d88;
-color:white;
-font-size:18px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- INTRO -->
-<div class="section">
-<div class="card">
-
-<h1 class="typing">💍 Happy Propose Day 💍</h1>
-<h2>ANGELINA MANDAL ❤️</h2>
-
-<div class="shayari">
-Tum meri zindagi ki sabse khoobsurat wajah ho ❤️<br>
-Tumhare bina sab adhura lagta hai 🌹<br>
-Tum meri khushi ho 💖<br>
-Tum meri dua ho 🌸<br>
-Main hamesha tumhare saath rehna chahta hoon ❤️
-</div>
-
-</div>
-</div>
-
-<!-- GIF 1 -->
-<div class="section">
-<div class="card">
-
-<img class="gif"
-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWxiaGxldXVpd3pkMzVhdzZtcGs0d2kwZG54Y28xdWY3MmZhNHNhdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xOvhMKk3EyS1LKQtkK/giphy.gif">
-
-<div class="shayari">
-Har din tumse baat karna mera favourite moment hai ❤️<br>
-Tum meri smile ho 😊<br>
-Tum meri duniya ho 🌍<br>
-Tum meri jaan ho 💖<br>
-Tum meri forever ho 🌹
-</div>
-
-</div>
-</div>
-
-<!-- GIF 2 -->
-<div class="section">
-<div class="card">
-
-<img class="gif"
-src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjJrNjZvbXo4cjBiM3hqNXI1emZjOWl4aTUxOHg4aTRlYXJ4bmJ2YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eJdKXy8BugNqMFsmyC/giphy.gif">
-
-<div class="shayari">
-Tum meri subah ho 🌅<br>
-Tum meri raat ho 🌙<br>
-Tum meri har khushi ho ❤️<br>
-Tum meri life ho 💖<br>
-Tum meri love story ho 🌹
-</div>
-
-</div>
-</div>
-
-<!-- SONG SECTION -->
-<div class="section">
-<div class="card">
-
-<h2>🎵 Our Song 🎵</h2>
-
-<button onclick="playMusic()">▶ Play Music</button>
-
-<div class="shayari">
-Har song me mujhe tum yaad aati ho ❤️<br>
-Har beat me tumhari smile dikhti hai 🌹<br>
-Tum meri favourite melody ho 💖<br>
-Tum meri life ki music ho 🎵<br>
-Tum hi meri love story ho ❤️
-</div>
-
-</div>
-</div>
-
-<!-- FINAL -->
-<div class="section">
-<div class="card">
-
-<img class="gif"
-src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmFwdWh1b3IyODk4Z2Z1cXZhNHRneHc0cHUxM3d1OW12bWJ1c3ZvMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yjvfyJN1regrQLDxGl/giphy.gif">
-
-<div class="shayari" style="font-size:22px;">
-Will You Be Mine Forever?❤️
-  PLEASE BE MY ANGELINA MANDAL💕💕
-</div>
-
-</div>
-</div>
-
-<!-- HIDDEN MUSIC PLAYER -->
-<iframe id="musicPlayer"
-width="0"
-height="0"
-src=""
-allow="autoplay">
-</iframe>
-
-<script>
-
-/* SCROLL FADE */
-let sections=document.querySelectorAll(".section");
-
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-let pos=sec.getBoundingClientRect().top;
-if(pos < window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-
-/* FLOAT HEART */
-function createHeart(){
-let heart=document.createElement("div");
-heart.innerHTML="❤️";
-heart.className="heart";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(18+Math.random()*25)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>{heart.remove()},6000);
-}
-
-setInterval(createHeart,500);
-
-/* PLAY NEW SONG INSIDE PAGE */
-function playMusic(){
-document.getElementById("musicPlayer").src =
-"https://image2url.com/r2/default/audio/1770537733108-92d1f31a-66e9-4469-a554-8f654862a396.mp3";
-}
-
-</script>
-
-</body>
+createGrid();
+createHearts();
+</script></body>
 </html>
-
-
-
